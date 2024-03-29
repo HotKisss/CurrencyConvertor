@@ -29,6 +29,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         GetCurrencies();
+        SetCurrenciesToFields();
     }
 
     private void GetCurrencies()
@@ -38,7 +39,7 @@ public partial class MainWindow : Window
         response.EnsureSuccessStatusCode();
         string responseBody = response.Content.ReadAsStringAsync().Result;
         _jsonData = JsonConvert.DeserializeObject(responseBody);
-        SetCurrenciesToFields();
+        
     }
 
     private void SetCurrenciesToFields()
